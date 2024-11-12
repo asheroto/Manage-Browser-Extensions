@@ -37,8 +37,6 @@ cd Manage-Browser-Extensions
 
 or save the raw script file.
 
-To load the functions in this script, use **dot-sourcing** instead of `Import-Module`. This approach will ensure all variables and functions are accessible in the current PowerShell session.
-
 # Usage
 
 Dot-source the functions:
@@ -51,14 +49,6 @@ This command loads the script and makes all functions available for use in the c
 
 You can then call the functions provided in the script as needed.
 
-## Parameters
-
-| Parameter      | Required | Description                                                                    |
-| -------------- | -------- | ------------------------------------------------------------------------------ |
-| `-Browser`     | Yes      | Specifies the browser to apply the action to (e.g., "Chrome" or "Edge").       |
-| `-ExtensionID` | Yes      | The unique ID of the extension to manage (install, block, unblock, or remove). |
-| `-UpdateUrl`   | No       | `Install-Extension` **only**: URL for the extension's update manifest.         |
-
 ## Commands
 
 | Command                  | Description                                                                           | Parameters                               |
@@ -69,6 +59,14 @@ You can then call the functions provided in the script as needed.
 | `Force-RemoveExtension`  | Removes a force-installed extension. Requires a browser restart to apply changes..    | `-Browser`, `-ExtensionID`               |
 | `Block-Extension`        | Blocks a specified extension to prevent installation.                                 | `-Browser`, `-ExtensionID`               |
 | `Unblock-Extension`      | Unblocks a specified extension to allow installation.                                 | `-Browser`, `-ExtensionID`               |
+
+## Parameters
+
+| Parameter      | Required | Description                                                                    |
+| -------------- | -------- | ------------------------------------------------------------------------------ |
+| `-Browser`     | Yes      | Specifies the browser to apply the action to (e.g., "Chrome" or "Edge").       |
+| `-ExtensionID` | Yes      | The unique ID of the extension to manage (install, block, unblock, or remove). |
+| `-UpdateUrl`   | No       | `Install-Extension` **only**: URL for the extension's update manifest.         |
 
 ## Examples
 
