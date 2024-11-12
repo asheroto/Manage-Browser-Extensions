@@ -49,18 +49,18 @@ You can then call the functions provided in the script as needed.
 | -------------- | -------- | ------------------------------------------------------------------------------ |
 | `-Browser`     | Yes      | Specifies the browser to apply the action to (e.g., "Chrome" or "Edge").       |
 | `-ExtensionID` | Yes      | The unique ID of the extension to manage (install, block, unblock, or remove). |
-| `-UpdateUrl`   | No       | `Install-Extension` **only**: URL for the extension's update manifest.           |
+| `-UpdateUrl`   | No       | `Install-Extension` **only**: URL for the extension's update manifest.         |
 
 ## Commands
 
-| Command                  | Description                                                                    | Parameters                               |
-| ------------------------ | ------------------------------------------------------------------------------ | ---------------------------------------- |
-| `Install-Extension`      | Installs an extension with an optional update URL.                             | `-Browser`, `-ExtensionID`, `-UpdateUrl` |
-| `Remove-Extension`       | Removes a specified extension from the browser.                                | `-Browser`, `-ExtensionID`               |
-| `Force-InstallExtension` | Forces the installation of an extension, requiring a restart to apply changes. | `-Browser`, `-ExtensionID`               |
-| `Force-RemoveExtension`  | Removes a forced extension from the browser.                                   | `-Browser`, `-ExtensionID`               |
-| `Block-Extension`        | Blocks a specified extension to prevent installation.                          | `-Browser`, `-ExtensionID`               |
-| `Unblock-Extension`      | Unblocks a specified extension to allow installation.                          | `-Browser`, `-ExtensionID`               |
+| Command                  | Description                                                                           | Parameters                               |
+| ------------------------ | ------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `Install-Extension`      | Installs an extension with an optional update URL.                                    | `-Browser`, `-ExtensionID`, `-UpdateUrl` |
+| `Remove-Extension`       | Removes a specified extension from the browser.                                       | `-Browser`, `-ExtensionID`               |
+| `Force-InstallExtension` | Forces the installation of an extension. Requires a browser restart to apply changes. | `-Browser`, `-ExtensionID`               |
+| `Force-RemoveExtension`  | Removes a force-installed extension. Requires a browser restart to apply changes..    | `-Browser`, `-ExtensionID`               |
+| `Block-Extension`        | Blocks a specified extension to prevent installation.                                 | `-Browser`, `-ExtensionID`               |
+| `Unblock-Extension`      | Unblocks a specified extension to allow installation.                                 | `-Browser`, `-ExtensionID`               |
 
 ## Examples
 
