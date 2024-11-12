@@ -64,11 +64,48 @@ You can then call the functions provided in the script as needed.
 
 ## Examples
 
-| Command                  | Description                                                      | Example Command                                                                                                                                    |
-| ------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Install-Extension`      | Installs a specified extension in the browser.                   | `Install-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj" -UpdateUrl "https://clients2.google.com/service/update2/crx"` |
-| `Remove-Extension`       | Removes a specified extension from the browser.                  | `Remove-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"`                                                                 |
-| `Force-InstallExtension` | Forces the installation of a specified extension in the browser. | `Force-InstallExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"`                                                         |
-| `Force-RemoveExtension`  | Removes a force-installed extension from the browser.            | `Force-RemoveExtension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"`                                                            |
-| `Block-Extension`        | Blocks a specified extension to prevent installation.            | `Block-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"`                                                                |
-| `Unblock-Extension`      | Unblocks a specified extension to allow installation.            | `Unblock-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"`                                                                |
+**Install an extension in Chrome with a default update URL**:
+
+```powershell
+Install-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
+```
+
+---
+
+**Remove an extension from Edge**:
+
+```powershell
+Remove-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
+```
+
+---
+
+**Force-install an extension in Chrome**:
+
+```powershell
+Force-InstallExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
+```
+
+---
+
+**Force-remove an extension from Edge**:
+
+```powershell
+Force-RemoveExtension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
+```
+
+---
+
+**Block an extension in Chrome**:
+
+```powershell
+Block-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
+```
+
+---
+
+**Unblock an extension in Edge**:
+
+```powershell
+Unblock-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
+```
