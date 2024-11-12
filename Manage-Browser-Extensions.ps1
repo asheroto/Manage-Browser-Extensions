@@ -62,25 +62,25 @@
     Project Site: https://github.com/asheroto/Manage-Browser-Extensions
 #>
 
-# Updated custom object for storing extension information with all necessary paths
+# Custom object for storing extension information with all necessary paths
 $extensionRegistryPaths = @{
     "Chrome" = [PSCustomObject]@{
-        ForceInstallPath          = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist"
-        ExtensionInstallBlocklist = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist"
-        ExtensionPaths            = @(
+        ForceInstallPath = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist"
+        BlocklistPath    = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist"
+        ExtensionPaths   = @(
             "HKLM:\SOFTWARE\WOW6432Node\Google\Chrome\Extensions",
             "HKLM:\SOFTWARE\Google\Chrome\Extensions"
         )
-        UpdateUrl                 = "https://clients2.google.com/service/update2/crx"
+        UpdateUrl        = "https://clients2.google.com/service/update2/crx"
     }
     "Edge"   = [PSCustomObject]@{
-        ForceInstallPath          = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist"
-        ExtensionInstallBlocklist = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist"
-        ExtensionPaths            = @(
+        ForceInstallPath = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist"
+        BlocklistPath    = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist"
+        ExtensionPaths   = @(
             "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Edge\Extensions",
             "HKLM:\SOFTWARE\Microsoft\Edge\Extensions"
         )
-        UpdateUrl                 = "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+        UpdateUrl        = "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
     }
 }
 
@@ -233,8 +233,13 @@ Function Block-Extension {
         throw "Unsupported browser: $Browser"
     }
 
-    # Ensure blocklist registry path exists
+    # Ensure blocklist registry path is defined
     $blocklistPath = $registryPaths.BlocklistPath
+    if (-not $blocklistPath) {
+        throw "Blocklist path is not defined for $Browser"
+    }
+
+    # Check if the blocklist path exists in the registry
     if (!(Test-Path -Path $blocklistPath)) {
         New-Item -Path $blocklistPath -Force | Out-Null
     }

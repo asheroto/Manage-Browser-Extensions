@@ -37,13 +37,17 @@ cd Manage-Browser-Extensions
 
 or save the raw script file.
 
+To load the functions in this script, use **dot-sourcing** instead of `Import-Module`. This approach will ensure all variables and functions are accessible in the current PowerShell session.
+
 # Usage
 
-Import the functions
+Dot-source the functions:
 
 ```powershell
-Import-Module .\Manage-Browser-Extensions.ps1 -Force
+. .\Manage-Browser-Extensions.ps1
 ```
+
+This command loads the script and makes all functions available for use in the current session.
 
 You can then call the functions provided in the script as needed.
 
