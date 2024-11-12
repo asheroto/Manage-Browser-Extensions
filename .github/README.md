@@ -45,11 +45,11 @@ You can then call the functions provided in the script as needed.
 
 ## Parameters
 
-| Parameter      | Required | Description                                                                                                     |
-| -------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `-Browser`     | Yes      | Specifies the browser to apply the action to (e.g., "Chrome" or "Edge").                                        |
-| `-ExtensionID` | Yes      | The unique ID of the extension to manage (install, block, unblock, or remove).                                  |
-| `-UpdateUrl`   | No       | `Install-Extension` only: URL for the extension's update manifest, typically used when installing an extension. |
+| Parameter      | Required | Description                                                                    |
+| -------------- | -------- | ------------------------------------------------------------------------------ |
+| `-Browser`     | Yes      | Specifies the browser to apply the action to (e.g., "Chrome" or "Edge").       |
+| `-ExtensionID` | Yes      | The unique ID of the extension to manage (install, block, unblock, or remove). |
+| `-UpdateUrl`   | No       | `Install-Extension` **only**: URL for the extension's update manifest.           |
 
 ## Commands
 
@@ -88,7 +88,7 @@ Force-InstallExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclef
 
 ---
 
-**Force-remove an extension from Edge**:
+**Remove a force-installed extension from Edge**:
 
 ```powershell
 Force-RemoveExtension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
