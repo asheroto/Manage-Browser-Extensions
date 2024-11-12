@@ -4,7 +4,7 @@
 
 # Extension Management for Chrome and Edge
 
-This script provides administrators with PowerShell functions to manage browser extensions in Chrome and Edge.
+This script provides administrators with PowerShell functions to manage browser extensions in Chrome and Edge. Several other Chromium-based browsers honor the Chrome registry keys for extensions.
 
 > [!NOTE]
 > Firefox is not supported.
@@ -13,10 +13,14 @@ This script provides administrators with PowerShell functions to manage browser 
 
 - **Install Extensions**: Adds specified extensions to the registry with an optional update URL, allowing installation in the browser.
 - **Remove Specified Extensions**: Deletes a specified extension from the browser by removing associated registry entries.
-- **Block Extensions**: Prevents installation of specified extensions by adding them to the registry blocklist.
-- **Unblock Extensions**: Allows installation of specified extensions if previously blocked by removing them from the blocklist.
 - **Force-Install Extensions**: Enforces installation of specified extensions by adding them to the ForceInstall policy list in the registry.
 - **Remove Force-Installed Extensions**: Removes specified extensions from the ForceInstall policy list, undoing enforced installations.
+- **Block Extensions**: Prevents installation of specified extensions by adding them to the registry blocklist.
+- **Unblock Extensions**: Allows installation of specified extensions if previously blocked by removing them from the blocklist.
+
+# How it Works
+
+These functions make use of Windows registry keys for extension management. No files or GPOs are modified.
 
 # Requirements
 

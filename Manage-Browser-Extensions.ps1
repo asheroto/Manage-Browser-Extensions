@@ -8,7 +8,7 @@
 
 .COMPANYNAME asheroto
 
-.TAGS PowerShell Chrome Edge Browser Extension Management Install Remove Force Forcelist ExtensionInstallForcelist Block Blocklist ExtensionInstallBlocklist Unblock
+.TAGS PowerShell Chrome Edge Browser Extension Management Add Install Remove Force Forcelist ExtensionInstallForcelist Block Blocklist ExtensionInstallBlocklist Unblock
 
 .PROJECTURI https://github.com/asheroto/Manage-Browser-Extensions
 
@@ -65,22 +65,22 @@
 # Updated custom object for storing extension information with all necessary paths
 $extensionRegistryPaths = @{
     "Chrome" = [PSCustomObject]@{
-        ForceInstallPath = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist"
-        InstallPath      = "HKLM:\SOFTWARE\Google\Chrome\Extensions"
-        ExtensionPaths   = @(
+        ForceInstallPath          = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist"
+        ExtensionInstallBlocklist = "HKLM:\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist"
+        ExtensionPaths            = @(
             "HKLM:\SOFTWARE\WOW6432Node\Google\Chrome\Extensions",
             "HKLM:\SOFTWARE\Google\Chrome\Extensions"
         )
-        UpdateUrl        = "https://clients2.google.com/service/update2/crx"
+        UpdateUrl                 = "https://clients2.google.com/service/update2/crx"
     }
     "Edge"   = [PSCustomObject]@{
-        ForceInstallPath = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist"
-        InstallPath      = "HKLM:\SOFTWARE\Microsoft\Edge\Extensions"
-        ExtensionPaths   = @(
+        ForceInstallPath          = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist"
+        ExtensionInstallBlocklist = "HKLM:\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist"
+        ExtensionPaths            = @(
             "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Edge\Extensions",
             "HKLM:\SOFTWARE\Microsoft\Edge\Extensions"
         )
-        UpdateUrl        = "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+        UpdateUrl                 = "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
     }
 }
 
