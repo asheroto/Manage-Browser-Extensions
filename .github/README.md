@@ -43,101 +43,32 @@ Import-Module .\Manage-Browser-Extensions.ps1 -Force
 
 You can then call the functions provided in the script as needed.
 
-## Functions
+## Parameters
 
-### Install-Extension
+| Parameter      | Required | Description                                                                                                     |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `-Browser`     | Yes      | Specifies the browser to apply the action to (e.g., "Chrome" or "Edge").                                        |
+| `-ExtensionID` | Yes      | The unique ID of the extension to manage (install, block, unblock, or remove).                                  |
+| `-UpdateUrl`   | No       | `Install-Extension` only: URL for the extension's update manifest, typically used when installing an extension. |
 
-Installs a specified extension in Edge by setting the update URL in the registry.
+## Commands
 
-**Syntax**:
-```powershell
-Install-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
-```
+| Command                  | Description                                                                    | Parameters                               |
+| ------------------------ | ------------------------------------------------------------------------------ | ---------------------------------------- |
+| `Install-Extension`      | Installs an extension with an optional update URL.                             | `-Browser`, `-ExtensionID`, `-UpdateUrl` |
+| `Remove-Extension`       | Removes a specified extension from the browser.                                | `-Browser`, `-ExtensionID`               |
+| `Force-InstallExtension` | Forces the installation of an extension, requiring a restart to apply changes. | `-Browser`, `-ExtensionID`               |
+| `Force-RemoveExtension`  | Removes a forced extension from the browser.                                   | `-Browser`, `-ExtensionID`               |
+| `Block-Extension`        | Blocks a specified extension to prevent installation.                          | `-Browser`, `-ExtensionID`               |
+| `Unblock-Extension`      | Unblocks a specified extension to allow installation.                          | `-Browser`, `-ExtensionID`               |
 
-**Example**:
-```powershell
-Install-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
-```
+## Examples
 
-### Remove-Extension
-
-Removes a specified extension from Chrome by deleting associated registry entries.
-
-**Syntax**:
-```powershell
-Remove-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-**Example**:
-```powershell
-Remove-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-### Force-InstallExtension
-
-Force-installs an extension in Chrome, adding it to the ForceInstall policy list.
-
-**Syntax**:
-```powershell
-Force-InstallExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-**Example**:
-```powershell
-Force-InstallExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-### Force-RemoveExtension
-
-Removes a force-installed extension from Chrome’s ForceInstall list.
-
-**Syntax**:
-```powershell
-Force-RemoveExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-**Example**:
-```powershell
-Force-RemoveExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-### Block-Extension
-
-Adds a specified extension to Chrome’s blocklist, preventing installation.
-
-**Syntax**:
-```powershell
-Block-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-**Example**:
-```powershell
-Block-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"
-```
-
-### Unblock-Extension
-
-Removes a specified extension from Edge’s blocklist, allowing installation if it was previously blocked.
-
-**Syntax**:
-```powershell
-Unblock-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
-```
-
-**Example**:
-```powershell
-Unblock-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"
-```
-
-# Important Notes
-
-- **No Restart Required**: Changes take effect immediately without requiring a browser or system restart. However, users may need to refresh the browser for the changes to fully apply.
-- **Supported Browsers**: This script only manages extensions for Chrome and Edge.
-
-# License
-
-This project is licensed under the MIT License.
-
-# Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue for any suggestions or improvements.
+| Command                  | Description                                                      | Example Command                                                                                                                                    |
+| ------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Install-Extension`      | Installs a specified extension in the browser.                   | `Install-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj" -UpdateUrl "https://clients2.google.com/service/update2/crx"` |
+| `Remove-Extension`       | Removes a specified extension from the browser.                  | `Remove-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"`                                                                 |
+| `Force-InstallExtension` | Forces the installation of a specified extension in the browser. | `Force-InstallExtension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"`                                                         |
+| `Force-RemoveExtension`  | Removes a force-installed extension from the browser.            | `Force-RemoveExtension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"`                                                            |
+| `Block-Extension`        | Blocks a specified extension to prevent installation.            | `Block-Extension -Browser "Chrome" -ExtensionID "efaidnbmnnnibpcajpcglclefindmkaj"`                                                                |
+| `Unblock-Extension`      | Unblocks a specified extension to allow installation.            | `Unblock-Extension -Browser "Edge" -ExtensionID "elhekieabhbkpmcefcoobjddigjcaadp"`                                                                |
