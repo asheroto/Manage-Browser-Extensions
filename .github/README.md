@@ -20,7 +20,7 @@ This script provides administrators with PowerShell functions to manage browser 
 
 # How it Works
 
-These functions make use of Windows registry keys for extension management. No files or GPOs are modified.
+These functions make use of Windows registry keys for extension management. No files are modified.
 
 # Requirements
 
